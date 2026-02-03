@@ -1,23 +1,40 @@
+import React from "react";
 import { styled } from "@linaria/react";
 
-const Box = styled.div`
-  padding: 40px;
-  background: #f6f6f6;
-  border: 2px solid #333;
-  text-align: center;
-`;
-
-const Button = styled.button`
-  margin-top: 16px;
-  padding: 8px 20px;
+const Animation = styled.div`
+  color: #343434;
   font-weight: bold;
+  margin-top: 100px;
+  animation: bounce 1s linear infinite;
+
+  @keyframes bounce {
+    0%,
+    20%,
+    53%,
+    80%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    40%,
+    43% {
+      transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+      transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+      transform: translate3d(0, -4px, 0);
+    }
+  }
 `;
 
-export default function App() {
-  return (
-    <Box>
-      <h2>Hello Linaria</h2>
-      <Button>Klik</Button>
-    </Box>
-  );
-}
+const App = () => (
+  <div style={{ textAlign: "center" }}>
+    <Animation>Advance Animation Using Linaria</Animation>
+  </div>
+);
+
+export default App;
